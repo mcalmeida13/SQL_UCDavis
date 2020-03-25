@@ -1,0 +1,47 @@
+## General sintax to create a table
+create table TABLENAME (
+    COLUMN1 datatype,
+    COLUMN2 datatype,
+    COLUMN3 datatype,
+        ...
+    ) ;
+    
+    
+## Create a test table
+### ID is an integer 
+### NAME is a character and you can type 30 chars
+
+create table TEST (
+    ID integer,
+    NAME varchar(30)
+    );
+    
+## Create COUNTRY table
+
+create table COUNTRY (
+    ID int,
+    CCODE char(2),
+    NAME varchar(60)
+    );
+    
+### The country must have an entry, therefore you must say 'NOT NULL'
+### ID is the primary key
+### Primary key must have unique values
+
+create table COUNTRY (
+    ID int NOT NULL,
+    CCODE char(2),
+    NAME varchar(60),
+    PRIMARY KEY (ID)
+    );
+    
+### If the table you are trying to create already exists in the database, you will get an error indicating "table XXX.YYY already exists". 
+### To circumvent this error, either create a table with a different name or first DROP the existing table. 
+### It is quite common to issue a DROP before doing a CREATE in test and development scenarios.
+
+drop table COUNTRY;
+create table COUNTRY (
+    ID integer PRIMARY KEY NOT NULL,
+    CCODE char(2),
+    NAME varchar(60)
+    );
